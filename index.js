@@ -5,9 +5,9 @@ import data from "./data/mock.json" with { type: "json" };
 const app = express();
 const PORT = 3000;
 //GET
-app.get("/", (request, response) => {
-  response.send("This is a GET request at /");
-});
+// app.get("/", (request, response) => {
+//   response.send("This is a GET request at /");
+// });
 //POST
 app.post("/create", (request, response) => {
   response.send("This is a POST request at /create");
@@ -19,6 +19,11 @@ app.put("/edit", (request, response) => {
 //DELETE
 app.delete("/delete", (request, response) => {
   response.send("This is a DELETE request at /delete");
+});
+
+//GET
+app.get("/", (request, response) => {
+  response.json(data);
 });
 
 app.listen(PORT, () => {
