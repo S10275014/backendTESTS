@@ -8,6 +8,13 @@ const PORT = 3000;
 // app.get("/", (request, response) => {
 //   response.send("This is a GET request at /");
 // });
+
+//using the public folder at the root of the project
+app.use(express.static("public"));
+
+//using the images folder at the route /image
+app.use("/images", express.static("images"));
+
 //POST
 app.post("/create", (request, response) => {
   response.send("This is a POST request at /create");
