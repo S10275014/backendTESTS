@@ -1,9 +1,16 @@
 import express, { request, response } from "express";
 import data from "./data/mock.json" with { type: "json" };
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 //const express = require("express");
 const app = express();
 const PORT = 3000;
+
 //GET
 // app.get("/", (request, response) => {
 //   response.send("This is a GET request at /");
@@ -34,9 +41,30 @@ app.get("/class/:id", (request, response) => {
   response.send(student);
 });
 
+//GET - download method
+// app.get("/download", (request, response) => {
+//   response.download("Images/Image1.jpg");
+// });
+
+//GET - redirect method
+app.get("/redirect", (request, response) => {
+  response.redirect("https://www.linkedin.com");
+});
+
 //app.get('users/:userId/books/:bookId', function (req, res) {
 //response.send(req.params)
 //})
+
+//DOWNLOAD FIX
+app.get("/download", (request, response) => {
+  const filepath = path.join(__dirname, "data/mock.json");
+  response.download(filepath, "mock.json", (err) => {
+    if (err) {
+      console.error("Download error: ", err);
+      response.status(500).send("Error downloading file");
+    }
+  });
+});
 
 app.get("/chatgpt", (request, response) => {
   response.json({

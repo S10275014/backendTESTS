@@ -1,0 +1,39 @@
+// index.js
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import data from "./data/mock.json" assert { type: "json" };
+
+// ES Modules __filename and __dirname setup
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+const PORT = 3000;
+
+// Redirect route
+app.get("/redirect", (req, res) => {
+  res.redirect("https://www.linkedin.com");
+});
+
+// Download route
+app.get("/download", (req, res) => {
+  const filepath = path.join(__dirname, "data/mock.json");
+  console.log("Downloading file from:", filepath);
+  res.download(filepath, "mock.json", (err) => {
+    if (err) {
+      console.error("Download error:", err);
+      res.status(500).send("Error downloading file");
+    }
+  });
+});
+
+// Serve JSON directly
+app.get("/data", (req, res) => {
+  res.json(data);
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
