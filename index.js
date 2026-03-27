@@ -16,6 +16,18 @@ const PORT = 3000;
 //   response.send("This is a GET request at /");
 // });
 
+app
+  .route("/class")
+  .get((request, response) => {
+    response.send("Retrieve class info");
+  })
+  .post((request, response) => {
+    response.send("create class info");
+  })
+  .put((request, response) => {
+    response.send("Update class info");
+  });
+
 //GET with next()
 app.get(
   "/next",
