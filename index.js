@@ -3,6 +3,7 @@ import data from "./data/mock.json" with { type: "json" };
 
 import path from "path";
 import { fileURLToPath } from "url";
+import { error } from "console";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,7 +20,8 @@ const PORT = 3000;
 app
   .route("/class")
   .get((request, response) => {
-    response.send("Retrieve class info");
+    //response.send("Retrieve class info");
+    throw new Error();
   })
   .post((request, response) => {
     response.send("create class info");
@@ -102,6 +104,11 @@ app.put("/edit", (request, response) => {
 //DELETE
 app.delete("/delete", (request, response) => {
   response.send("This is a DELETE request at /delete");
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something is broken!");
 });
 
 //GET
