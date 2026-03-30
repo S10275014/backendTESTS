@@ -109,6 +109,19 @@ app.get("/", (request, response) => {
   response.json(data);
 });
 
+//using express.json and express.urlencoded
+//app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
+//POST -express.json and express.urlencoded
+app.post("/item", (request, response) => {
+  console.log(request.body);
+  console.log(request.body.item);
+  response.send(request.body);
+  response.send(request.body.item);
+});
+
 app.listen(PORT, () => {
   console.log(`The Server is running on port ${PORT}`);
   console.log(data);
