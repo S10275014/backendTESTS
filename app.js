@@ -1,41 +1,54 @@
-// function sayHello(name) {
-//   console.log("Hello " + name);
-// }
+// // function sayHello(name) {
+// //   console.log("Hello " + name);
+// // }
 
-// //sayHello("Mosh");
-// console.log(window);
+// // //sayHello("Mosh");
+// // console.log(window);
 
-// console.log(); //global
+// // console.log(); //global
 
-// setTimeout();
-// clearTimeout();
+// // setTimeout();
+// // clearTimeout();
 
-// setInterval();
-// clearInterval();
+// // setInterval();
+// // clearInterval();
 
-//window.console.log;
-//window.setTimeout
+// //window.console.log;
+// //window.setTimeout
 
-// var message = "";
+// // var message = "";
 
-// //global.console
-// //global.setTimeout
-// //window.message;
-// console.log(global.message);
+// // //global.console
+// // //global.setTimeout
+// // //window.message;
+// // console.log(global.message);
 
-// var sayHello = function () {};
+// // var sayHello = function () {};
 
-// window.sayHello();
+// // window.sayHello();
 
-// console.log(module);
+// // console.log(module);
 
-var log = require("./logger"); //const logger
+// var log = require("./logger"); //const logger
 
-console.log(log);
+// console.log(log);
 
-//logger.log("message");
-//log(message);
-//logger.endPoint;
+// //logger.log("message");
+// //log(message);
+// //logger.endPoint;
 
-//logger.test("Cake");
-log("Test message");
+// //logger.test("Cake");
+// log("Test message");
+
+const path = require("path");
+
+var pathObj = path.parse(__filename);
+
+console.log(pathObj);
+
+// var test = path.parse("Test");
+// var hello = "/home/user/file.txt";
+// var test = path.parse(hello);
+// console.error("Error 404");
+
+// console.log(test);
