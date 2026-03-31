@@ -40,11 +40,11 @@
 // //logger.test("Cake");
 // log("Test message");
 
-const path = require("path");
+// const path = require("path");
 
-var pathObj = path.parse(__filename);
+// var pathObj = path.parse(__filename);
 
-console.log(pathObj);
+// console.log(pathObj);
 
 // var test = path.parse("Test");
 // var hello = "/home/user/file.txt";
@@ -52,3 +52,16 @@ console.log(pathObj);
 // console.error("Error 404");
 
 // console.log(test);
+const os = require("os");
+
+var totalMemory = os.totalmem();
+
+var freeMemory = os.freemem();
+
+//console.log("Total Memory: " + totalMemory);
+
+// Template string
+// ES6 / ES2015 : ECMAScript 6
+
+console.log(`Total Memory: ${totalMemory}`);
+console.log(`Free Memory: ${freeMemory}`);
