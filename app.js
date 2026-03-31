@@ -52,16 +52,29 @@
 // console.error("Error 404");
 
 // console.log(test);
-const os = require("os");
+// const os = require("os");
 
-var totalMemory = os.totalmem();
+// var totalMemory = os.totalmem();
 
-var freeMemory = os.freemem();
+// var freeMemory = os.freemem();
 
-//console.log("Total Memory: " + totalMemory);
+// //console.log("Total Memory: " + totalMemory);
 
-// Template string
-// ES6 / ES2015 : ECMAScript 6
+// // Template string
+// // ES6 / ES2015 : ECMAScript 6
 
-console.log(`Total Memory: ${totalMemory}`);
-console.log(`Free Memory: ${freeMemory}`);
+// console.log(`Total Memory: ${totalMemory}`);
+// console.log(`Free Memory: ${freeMemory}`);
+
+const fs = require("fs");
+
+const files = fs.readdirSync("./");
+console.log(files);
+
+fs.readdir("./", function (err, files) {
+  if (err) {
+    console.log("Error", err);
+  } else {
+    console.log("Result: ", files);
+  }
+});
