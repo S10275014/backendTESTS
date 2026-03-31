@@ -7,6 +7,13 @@ function log(message) {
 
 //log("Test");
 
-module.exports.log = log;
+//module.exports.log = log;
 //module.exports.url = url;
-module.exports.endPoint = url;
+module.exports = log;
+//module.exports.endPoint = url;
+
+// function test(abc) {
+//   console.warn(abc + ", Please try again!");
+// }
+
+// module.exports.test = test;

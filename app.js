@@ -27,4 +27,15 @@
 
 // window.sayHello();
 
-console.log(module);
+// console.log(module);
+
+var log = require("./logger"); //const logger
+
+console.log(log);
+
+//logger.log("message");
+//log(message);
+//logger.endPoint;
+
+//logger.test("Cake");
+log("Test message");
