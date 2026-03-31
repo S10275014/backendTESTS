@@ -87,6 +87,16 @@ emitter.on("messageLogged", function () {
   console.log("Listerner called");
 });
 
+// function logError() {
+//   console.error("This is a 503 error service request");
+// }
+
+// // Add listener
+// emitter.on("messageLogged", logError);
+
+// // Remove listener later
+// emitter.off("messageLogged", logError);
+
 // emitter.once("messageLogged", function () {
 //   console.warn("Please try again later");
 // });
