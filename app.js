@@ -79,18 +79,43 @@
 //   }
 // });
 
-const EventEmitter = require("events");
-const emitter = new EventEmitter();
+// const EventEmitter = require("events");
+// const emitter = new EventEmitter();
 
-//Register a listerner
-emitter.on("messageLogged", function () {
-  console.log("Listerner called");
-});
+// //Register a listerner
+// emitter.on("messageLogged", function () {
+//   console.log("Listerner called");
+// });
+
+// const EventEmitter = require("events");
+// const emitter = new EventEmitter();
+
+// emitter.on("messageLogged", () => {
+//   console.log("Listerner Called");
+// });
+
+// emitter.emit("messageLogged");
 
 // function logError() {
 //   console.error("This is a 503 error service request");
 // }
 
+const EventEmitter = require("events");
+
+const emitter = new EventEmitter();
+
+//Register a listener //e eventArgs
+emitter.on("messageLogged", (args) => {
+  console.log("Listener called", args);
+});
+
+// emitter.on("messageLogged", function (args) {
+//   console.log("Listener called", args);
+// });
+//Raise an event
+//emitter.emit("messageLogged", 1, "url"); //ID 1
+
+emitter.emit("messageLogged", { id: 1, url: "https://chatgpt.com/" });
 // // Add listener
 // emitter.on("messageLogged", logError);
 
@@ -103,3 +128,7 @@ emitter.on("messageLogged", function () {
 
 //Raise an event
 emitter.emit("messageLogged");
+
+//Raise logging (data: message)
+var message = "Hello World";
+emitter.emit("messageLogged", { data: message });
