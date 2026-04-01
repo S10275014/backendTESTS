@@ -100,7 +100,7 @@
 //   console.error("This is a 503 error service request");
 // }
 
-const EventEmitter = require("events");
+// const EventEmitter = require("events");
 
 //const emitter = new EventEmitter();
 
@@ -130,11 +130,42 @@ const EventEmitter = require("events");
 // var message = "Hello World";
 // emitter.emit("messageLogged", { data: message });
 
-const Logger = require("./logger");
-const logger = new Logger();
+// const Logger = require("./logger");
+// const logger = new Logger();
 
-logger.on("messageLogged", (args) => {
-  console.log("Listener called", args);
+// logger.on("messageLogged", (args) => {
+//   console.log("Listener called", args);
+// });
+
+// logger.log("message");
+
+const http = require("http");
+
+//const server = http.createServer();
+const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.write("Hello World ");
+    //res.write("Test");
+    //res.writable("Test 2"); - desont work
+    //res.emit("Hi"); //emit() is for events, not for writing to the response body. -- doesnt work
+    //res.write("Test 3");
+    res.end();
+  }
+  if (req.url === "/api/courses") {
+    res.write(JSON.stringify([1, 2, 3]));
+    // const msg = { data: "What the dog doing" };
+    // const numbers = 42;
+    // res.write(JSON.stringify(msg));
+    // res.write(JSON.stringify(numbers));
+
+    res.end();
+  }
 });
+// server.on("connection", (socket) => {
+//   console.log("New Connection...");
+//   //console.log(socket);
+// });
 
-logger.log("message");
+server.listen(3000);
+
+console.log("Listening on port 3000...");
