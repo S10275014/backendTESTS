@@ -102,12 +102,9 @@
 
 const EventEmitter = require("events");
 
-const emitter = new EventEmitter();
+//const emitter = new EventEmitter();
 
 //Register a listener //e eventArgs
-emitter.on("messageLogged", (args) => {
-  console.log("Listener called", args);
-});
 
 // emitter.on("messageLogged", function (args) {
 //   console.log("Listener called", args);
@@ -115,7 +112,7 @@ emitter.on("messageLogged", (args) => {
 //Raise an event
 //emitter.emit("messageLogged", 1, "url"); //ID 1
 
-emitter.emit("messageLogged", { id: 1, url: "https://chatgpt.com/" });
+// emitter.emit("messageLogged", { id: 1, url: "https://chatgpt.com/" });
 // // Add listener
 // emitter.on("messageLogged", logError);
 
@@ -127,8 +124,17 @@ emitter.emit("messageLogged", { id: 1, url: "https://chatgpt.com/" });
 // });
 
 //Raise an event
-emitter.emit("messageLogged");
+// emitter.emit("messageLogged");
 
-//Raise logging (data: message)
-var message = "Hello World";
-emitter.emit("messageLogged", { data: message });
+// //Raise logging (data: message)
+// var message = "Hello World";
+// emitter.emit("messageLogged", { data: message });
+
+const Logger = require("./logger");
+const logger = new Logger();
+
+logger.on("messageLogged", (args) => {
+  console.log("Listener called", args);
+});
+
+logger.log("message");

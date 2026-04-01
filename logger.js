@@ -29,23 +29,31 @@
 //var x =;
 
 const EventEmitter = require("events");
-const emitter = new EventEmitter();
+//const emitter = new EventEmitter();
 
 var url = "https://chatgpt.com/";
 
-function log(message) {
-  //Send an http request
-  console.log(message);
+class Logger extends EventEmitter {
+  log(message) {
+    console.log(message);
 
-  //Raise an event
-  emitter.emit("messageLogged", { id: 1, url: "https://chatgpt.com/" });
+    this.emit("messageLogged", { id: 1, url: "https://chatgpt.com/" });
+  }
 }
+
+// function log(message) {
+//   //Send an http request
+//   console.log(message);
+
+//   //Raise an event
+//   emitter.emit("messageLogged", { id: 1, url: "https://chatgpt.com/" });
+// }
 
 //log("Test");
 
 //module.exports.log = log;
 //module.exports.url = url;
-module.exports = log;
+module.exports = Logger;
 //module.exports.endPoint = url;
 
 // function test(abc) {
