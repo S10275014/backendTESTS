@@ -24,14 +24,21 @@
 //   // exports = log; //module.exports
 // });
 // (exports, require, module, __filename, __dirname);
-console.log(__filename);
-console.log(__dirname);
+// console.log(__filename);
+// console.log(__dirname);
 //var x =;
+
+const EventEmitter = require("events");
+const emitter = new EventEmitter();
+
 var url = "https://chatgpt.com/";
 
 function log(message) {
   //Send an http request
   console.log(message);
+
+  //Raise an event
+  emitter.emit("messageLogged", { id: 1, url: "https://chatgpt.com/" });
 }
 
 //log("Test");
