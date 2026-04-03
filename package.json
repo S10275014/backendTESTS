@@ -1,23 +1,20 @@
 {
-  "name": "test",
+  "name": "old-folder",
   "version": "1.0.0",
   "description": "",
-  "license": "ISC",
-  "author": "Ken",
-  "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --experimental-json-modules --exec babel-node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
-    "express": "^5.2.1",
-    "nodemon": "^3.1.14"
+    "express": "^5.2.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.28.6",
-    "@babel/core": "^7.29.0",
-    "@babel/node": "^7.29.0",
-    "@babel/preset-env": "^7.29.2"
+    "nodemon": "^3.1.14"
   }
 }
