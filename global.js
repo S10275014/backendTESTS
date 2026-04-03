@@ -20,5 +20,7 @@ console.log(global);
 //   console.log("In the interval");
 // }, 1000);
 
-console.log(__dirname);
-console.log(__filename);
+// console.log(__dirname);
+// console.log(__filename);
+
+//console.log(document.querySelector);
